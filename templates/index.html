@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block heading %}
+    Welcome to Lorem Ipsum!
+{% endblock %}
+
+{% block body %}
+    <ul class="list-group bg-secondary text-white">
+        {% for page in pages %}
+            <li class="list-group-item bg-secondary text-white"><a href="{{ url_for(page[0])}}"> {{ page[1] }} </a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

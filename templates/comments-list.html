@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block heading %}
+    List of comments
+{% endblock %}
+
+{% block body %}
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment[0] }} -{{ comment[1] }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
