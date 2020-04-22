@@ -3,9 +3,9 @@ from flask_session import Session
 
 app = Flask(__name__)
 app.debug = True
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = 'filesystem'
-Session(app)
+# app.config["SESSION_PERMANENT"] = False
+# app.config["SESSION_TYPE"] = 'filesystem'
+# Session(app)
 comments = []
 
 
@@ -32,16 +32,14 @@ def generate_lorem_ipsum():
 
 @app.route('/leave-a-comment', methods=['GET', 'POST'])
 def leave_a_comment():
-    if session.get('comments') is None:
-        session['comments'] = []
     if request.method == 'POST':
         if request.form.get('name') is not "":
             name = request.form.get('name')
             comment = request.form.get('comment')
-            session['comments'].append((comment, name))
+            comments.append(comment)
         else:
             comment = request.form.get('comment')
-            session['comments'].append((comment, 'Anonymous'))
+            comments.append((comment, 'Anonymous'))
     return render_template('leave-a-comment.html')
 
 

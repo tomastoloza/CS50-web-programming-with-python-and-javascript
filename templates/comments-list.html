@@ -4,9 +4,9 @@
 {% endblock %}
 
 {% block body %}
-    <ul>
+    <ul class="list-group bg-secondary text-white">
         {% for comment in comments %}
-            <li>{{ comment[0] }} -{{ comment[1] }}</li>
+            <li class="list-group-item bg-secondary text-white">{{ comment[0] }} -{{ comment[1] }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
